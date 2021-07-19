@@ -1,11 +1,11 @@
-import KillCounter from "./components/KillCounter/KillCounter";
+import ApexContainer from "./components/ApexContainer";
 
 function App() {
   return (
-    <div className="App">
+    <section className="container">
       <h1>Start of Apex Counters</h1>
-      <KillCounter />
-    </div>
+      <ApexContainer />
+    </section>
   );
 }
 

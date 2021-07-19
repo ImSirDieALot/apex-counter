@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Summary from "./Summary";
 
 const KillCounter = () => {
   const [kills, setKills] = useState(0);
@@ -17,8 +18,8 @@ const KillCounter = () => {
   };
 
   const saveKills = () => {
-    totalKills.push(kills);
-    setTotalKills(totalKills);
+    setKills(0);
+    setTotalKills([...totalKills, kills]);
   };
 
   return (
@@ -43,6 +44,9 @@ const KillCounter = () => {
       </div>
       <article>
         <div>
+          <h2>Total Kills - {totalKills.reduce((a, b) => a + b, 0)}</h2>
+        </div>
+        <div>
           {totalKills.length > 0 &&
             totalKills.map((kill, index) => (
               <h3 key={index}>
@@ -50,7 +54,6 @@ const KillCounter = () => {
               </h3>
             ))}
         </div>
-        <div>Total Kills - {totalKills.reduce((a, b) => a + b, 0)}</div>
       </article>
     </section>
   );
